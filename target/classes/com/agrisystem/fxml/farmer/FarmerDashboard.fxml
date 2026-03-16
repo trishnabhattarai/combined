@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.farmer.FarmerDashboardController"
+            fitToWidth="true" styleClass="scroll-pane">
+
+    <VBox spacing="24" styleClass="page-content">
+        <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label fx:id="welcomeLabel" styleClass="page-title"/>
+                <Label fx:id="subtitleLabel" text="Here's an overview of your farm today." styleClass="page-subtitle"/>
+            </VBox>
+            <!-- Weather alert bell -->
+            <StackPane>
+                <Button text="🔔 Weather Alerts" styleClass="btn-secondary" onAction="#toggleAlertsPanel"/>
+                <Label fx:id="alertBadge" visible="false" managed="false"
+                       style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-size: 10px;
+                              -fx-background-radius: 8; -fx-padding: 1 5 1 5; -fx-font-weight: bold;"
+                       StackPane.alignment="TOP_RIGHT" translateX="4" translateY="-4"/>
+            </StackPane>
+        </HBox>
+
+        <!-- Alerts panel (hidden until bell is clicked) -->
+        <VBox fx:id="alertsPanel" visible="false" managed="false"
+              styleClass="card" spacing="10">
+            <padding><Insets top="16" bottom="16" left="16" right="16"/></padding>
+            <Label text="🌤 Weather Alerts" styleClass="section-title"/>
+        </VBox>
+
+        <!-- Stats row -->
+        <HBox spacing="16">
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label text="Today's Temp" styleClass="stat-label"/>
+                <Label fx:id="tempLabel" styleClass="stat-value"/>
+                <Label fx:id="conditionLabel" styleClass="stat-sub"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label text="Active Fields" styleClass="stat-label"/>
+                <Label fx:id="fieldsLabel" styleClass="stat-value"/>
+                <Label text="Your registered fields" styleClass="stat-sub"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label text="Pending Loans" styleClass="stat-label"/>
+                <Label fx:id="loansLabel" styleClass="stat-value"/>
+                <Label text="Awaiting approval" styleClass="stat-sub"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label text="Balance" styleClass="stat-label"/>
+                <Label fx:id="balanceLabel" styleClass="stat-value"/>
+                <Label text="Available funds" styleClass="stat-sub"/>
+            </VBox>
+        </HBox>
+
+        <!-- Temperature Trend Chart -->
+        <VBox styleClass="chart-card" spacing="12">
+            <Label text="Temperature Trend (Last 30 Days)" styleClass="section-title"/>
+            <LineChart fx:id="temperatureChart" prefHeight="280"
+                       legendVisible="false">
+                <xAxis><CategoryAxis label="Date"/></xAxis>
+                <yAxis><NumberAxis label="°C" lowerBound="10" upperBound="40" tickUnit="5"/></yAxis>
+            </LineChart>
+        </VBox>
+
+        <!-- Crop Recommendations -->
+        <VBox styleClass="card" spacing="12">
+            <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+            <Label text="🌱 Weather-Based Crop Recommendations" styleClass="section-title"/>
+            <Label fx:id="cropRecoLabel" wrapText="true" styleClass="muted-text"/>
+            <VBox fx:id="cropRecoContainer" spacing="8"/>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

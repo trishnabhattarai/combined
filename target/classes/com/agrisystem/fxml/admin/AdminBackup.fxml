@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.admin.AdminBackupController"
+            fitToWidth="true" styleClass="scroll-pane">
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label text="System Backup &amp; Audit Log" styleClass="page-title"/>
+        <Label text="Create or restore data backups and review system activity." styleClass="page-subtitle"/>
+    </VBox>
+
+    <!-- Backup management card -->
+    <HBox spacing="24">
+        <!-- Create backup -->
+        <VBox styleClass="card" spacing="16" HBox.hgrow="ALWAYS">
+            <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+            <Label text="💾 Create Backup" styleClass="section-title"/>
+            <Label text="Snapshot all CSV data files to a timestamped backup folder." wrapText="true" styleClass="muted-text"/>
+            <Button text="Create Backup Now" styleClass="btn-primary" onAction="#createBackup"/>
+            <Label fx:id="backupStatusLabel" wrapText="true" styleClass="muted-text"/>
+        </VBox>
+
+        <!-- Restore backup -->
+        <VBox styleClass="card" spacing="16" HBox.hgrow="ALWAYS">
+            <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+            <Label text="🔄 Restore Backup" styleClass="section-title"/>
+            <Label text="Select a backup from the list below and restore it. All current data will be overwritten." wrapText="true" styleClass="muted-text"/>
+            <ListView fx:id="backupListView" prefHeight="140">
+                <placeholder>
+                    <Label text="No backups yet." styleClass="muted-text"/>
+                </placeholder>
+            </ListView>
+            <Button text="Restore Selected Backup" styleClass="btn-secondary" onAction="#restoreBackup"/>
+        </VBox>
+    </HBox>
+
+    <!-- Audit log -->
+    <VBox styleClass="card" spacing="12">
+        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="📋 Audit Log" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+            <Button text="⟳ Refresh" styleClass="btn-secondary" onAction="#refreshAuditLogAction"/>
+        </HBox>
+        <Label text="Records user logins and key system activities." styleClass="muted-text"/>
+        <TableView fx:id="auditTable" prefHeight="320" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colAuditTime"   text="Timestamp"  prefWidth="160"/>
+                <TableColumn fx:id="colAuditUser"   text="User"       prefWidth="200"/>
+                <TableColumn fx:id="colAuditAction" text="Action"     prefWidth="160"/>
+                <TableColumn fx:id="colAuditDetail" text="Detail"     prefWidth="300"/>
+            </columns>
+            <placeholder>
+                <Label text="No audit entries yet." styleClass="muted-text"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+</VBox>
+</ScrollPane>

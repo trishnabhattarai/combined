@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.agrisystem.controller.LoginController"
+           styleClass="login-root"
+           prefWidth="500" prefHeight="600">
+
+    <VBox alignment="CENTER" spacing="0" maxWidth="420">
+        <padding><Insets top="40" bottom="40" left="40" right="40"/></padding>
+
+        <!-- Logo / Brand -->
+        <Label text="🌾" style="-fx-font-size: 56px;"/>
+        <Label text="AgriSystem" styleClass="brand-title"/>
+        <Label text="Farm Management Platform" styleClass="brand-subtitle"/>
+
+        <Region minHeight="30"/>
+
+        <!-- Card -->
+        <VBox styleClass="card" spacing="16">
+            <padding><Insets top="30" bottom="30" left="30" right="30"/></padding>
+
+            <Label text="Sign In" styleClass="form-heading"/>
+
+            <VBox spacing="6">
+                <Label text="Email or Phone" styleClass="field-label"/>
+                <TextField fx:id="emailField" promptText="Enter your email or phone" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Password" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="input-field"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" visible="false"/>
+
+            <Button text="Sign In" styleClass="btn-primary" maxWidth="Infinity"
+                    onAction="#handleLogin" defaultButton="true"/>
+
+            <Separator/>
+
+            <HBox alignment="CENTER" spacing="6">
+                <Label text="Don't have an account?" styleClass="muted-text"/>
+                <Hyperlink text="Sign Up" onAction="#goToSignup" styleClass="link"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>

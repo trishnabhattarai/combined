@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.agrisystem.controller.farmer.FarmerLoansController"
+      styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="My Loans" styleClass="page-title"/>
+            <Label text="Manage your cooperative loans." styleClass="page-subtitle"/>
+        </VBox>
+        <Button text="Request Loan" styleClass="btn-primary" onAction="#requestLoan"/>
+    </HBox>
+
+    <!-- Stats row -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Balance" styleClass="stat-label"/>
+            <Label fx:id="balanceLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Responsibility Score" styleClass="stat-label"/>
+            <Label fx:id="responsibilityLabel" styleClass="stat-value"/>
+            <ProgressBar fx:id="responsibilityBar" maxWidth="Infinity"/>
+            <Label text="Increases with on-time repayment" styleClass="stat-sub"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Active Loans" styleClass="stat-label"/>
+            <Label fx:id="activeLoansLabel" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <!-- Loans table -->
+    <TableView fx:id="loansTable" VBox.vgrow="ALWAYS" styleClass="data-table">
+        <columns>
+            <TableColumn fx:id="colId" text="Loan ID" prefWidth="100"/>
+            <TableColumn fx:id="colAmount" text="Amount (NRs)" prefWidth="130"/>
+            <TableColumn fx:id="colCoop" text="Cooperative" prefWidth="160"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="110"/>
+            <TableColumn fx:id="colDate" text="Request Date" prefWidth="130"/>
+            <TableColumn fx:id="colAction" text="Action" prefWidth="120"/>
+        </columns>
+        <placeholder>
+            <Label text="No loans found. Click 'Request Loan' to get started." styleClass="muted-text"/>
+        </placeholder>
+    </TableView>
+
+</VBox>

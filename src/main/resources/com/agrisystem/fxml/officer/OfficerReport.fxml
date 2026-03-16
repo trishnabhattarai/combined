@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.officer.OfficerReportController"
+            fitToWidth="true" styleClass="scroll-pane">
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label text="Cooperative Report" styleClass="page-title"/>
+        <Label fx:id="coopLabel" styleClass="page-subtitle"/>
+        <HBox alignment="CENTER_RIGHT">
+            <Button text="⬇ Export Report as CSV" styleClass="btn-primary" onAction="#exportReportCsv"/>
+        </HBox>
+    </VBox>
+
+    <!-- Summary cards -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Total Members" styleClass="stat-label"/>
+            <Label fx:id="membersLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Total Loans" styleClass="stat-label"/>
+            <Label fx:id="totalLoansLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Approved Loans" styleClass="stat-label"/>
+            <Label fx:id="approvedLoansLabel" styleClass="stat-value" style="-fx-text-fill:#4CAF50;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Repaid Loans" styleClass="stat-label"/>
+            <Label fx:id="repaidLoansLabel" styleClass="stat-value" style="-fx-text-fill:#2196F3;"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="24">
+        <!-- Loan status pie -->
+        <VBox styleClass="chart-card" HBox.hgrow="ALWAYS" spacing="12">
+            <Label text="Loan Status Distribution" styleClass="section-title"/>
+            <PieChart fx:id="loanPieChart" prefHeight="250"/>
+        </VBox>
+
+        <!-- Market activity bar -->
+        <VBox styleClass="chart-card" HBox.hgrow="ALWAYS" spacing="12">
+            <Label text="Total Market Volume (NRs)" styleClass="section-title"/>
+            <BarChart fx:id="marketBar" prefHeight="250">
+                <xAxis><CategoryAxis label="Market"/></xAxis>
+                <yAxis><NumberAxis label="NRs"/></yAxis>
+            </BarChart>
+        </VBox>
+    </HBox>
+
+    <!-- Text stats -->
+    <VBox styleClass="chart-card" spacing="8">
+        <Label text="Cooperative Details" styleClass="section-title"/>
+        <Label fx:id="detailsLabel" wrapText="true" styleClass="muted-text"/>
+    </VBox>
+
+    <!-- Market Prices (24-hour, persisted) -->
+    <VBox styleClass="card" spacing="12">
+        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+        <Label text="📈 Current Market Prices" styleClass="section-title"/>
+        <Label text="Prices refresh every 24 hours and are stored in data/market_prices.csv." styleClass="muted-text"/>
+        <TableView fx:id="pricesTable" prefHeight="220" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colPriceMarket"  text="Market"       prefWidth="200"/>
+                <TableColumn fx:id="colPriceCrop"    text="Crop"         prefWidth="130"/>
+                <TableColumn fx:id="colPriceValue"   text="Price/kg"     prefWidth="130"/>
+                <TableColumn fx:id="colPriceUpdated" text="Last Updated" prefWidth="150"/>
+                <TableColumn fx:id="colPriceExpiry"  text="Refreshes In" prefWidth="120"/>
+            </columns>
+            <placeholder>
+                <Label text="No price data yet. Prices appear after market activity." styleClass="muted-text"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+</VBox>
+</ScrollPane>

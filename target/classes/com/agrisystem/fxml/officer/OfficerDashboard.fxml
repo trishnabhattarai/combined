@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.officer.OfficerDashboardController"
+            fitToWidth="true" styleClass="scroll-pane">
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label fx:id="welcomeLabel" styleClass="page-title"/>
+        <Label fx:id="coopLabel" styleClass="page-subtitle"/>
+    </VBox>
+
+    <!-- Stats -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Loans Processed" styleClass="stat-label"/>
+            <Label fx:id="scoreLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Pending Loans" styleClass="stat-label"/>
+            <Label fx:id="pendingLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Coop Members" styleClass="stat-label"/>
+            <Label fx:id="membersLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Pending Memberships" styleClass="stat-label"/>
+            <Label fx:id="pendingMembersLabel" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <!-- Market Activity Chart — legendVisible=true so Sales vs Purchases lines show -->
+    <VBox styleClass="chart-card" spacing="12">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="Market Activity (NRs)" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+            <ComboBox fx:id="marketCombo" onAction="#updateChart"/>
+        </HBox>
+        <LineChart fx:id="activityChart" prefHeight="300" legendVisible="true" animated="false">
+            <xAxis><CategoryAxis label="Date"/></xAxis>
+            <yAxis><NumberAxis label="Volume (NRs)"/></yAxis>
+        </LineChart>
+    </VBox>
+</VBox>
+</ScrollPane>

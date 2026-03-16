@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.agrisystem.controller.farmer.FarmerCooperativesController"
+      styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label text="Cooperatives" styleClass="page-title"/>
+        <Label text="Join cooperatives and manage your membership requests." styleClass="page-subtitle"/>
+    </VBox>
+
+    <!-- My Cooperatives -->
+    <VBox styleClass="chart-card" spacing="12">
+        <Label text="My Cooperatives" styleClass="section-title"/>
+        <TableView fx:id="myCoopsTable" prefHeight="160" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colMyCoopId" text="ID" prefWidth="100"/>
+                <TableColumn fx:id="colMyCoopName" text="Name" prefWidth="200"/>
+                <TableColumn fx:id="colMyDistrict" text="District" prefWidth="160"/>
+                <TableColumn fx:id="colMyMembers" text="Members" prefWidth="100"/>
+            </columns>
+            <placeholder><Label text="You are not a member of any cooperative." styleClass="muted-text"/></placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- Available Cooperatives to join -->
+    <VBox styleClass="chart-card" spacing="12">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="Available Cooperatives" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+            <Label text="Request to join any cooperative below." styleClass="muted-text"/>
+        </HBox>
+        <TableView fx:id="availableCoopsTable" prefHeight="200" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colAvailId" text="ID" prefWidth="100"/>
+                <TableColumn fx:id="colAvailName" text="Name" prefWidth="200"/>
+                <TableColumn fx:id="colAvailDistrict" text="District" prefWidth="160"/>
+                <TableColumn fx:id="colAvailMembers" text="Members" prefWidth="90"/>
+                <TableColumn fx:id="colAvailAction" text="Action" prefWidth="150"/>
+            </columns>
+            <placeholder><Label text="No cooperatives available." styleClass="muted-text"/></placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- My Requests -->
+    <VBox styleClass="chart-card" spacing="12">
+        <Label text="My Membership Requests" styleClass="section-title"/>
+        <TableView fx:id="requestsTable" prefHeight="160" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colReqId" text="Request ID" prefWidth="110"/>
+                <TableColumn fx:id="colReqCoop" text="Cooperative" prefWidth="200"/>
+                <TableColumn fx:id="colReqStatus" text="Status" prefWidth="100"/>
+                <TableColumn fx:id="colReqDate" text="Date" prefWidth="120"/>
+            </columns>
+            <placeholder><Label text="No pending requests." styleClass="muted-text"/></placeholder>
+        </TableView>
+    </VBox>
+</VBox>

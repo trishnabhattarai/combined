@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.agrisystem.controller.officer.OfficerMembershipController"
+      styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Membership Requests" styleClass="page-title"/>
+            <Label text="Approve or reject farmer requests to join your cooperative." styleClass="page-subtitle"/>
+        </VBox>
+        <Label fx:id="pendingCountLabel" styleClass="balance-badge"/>
+    </HBox>
+
+    <ComboBox fx:id="statusFilter" onAction="#filterRequests"/>
+
+    <TableView fx:id="requestsTable" VBox.vgrow="ALWAYS" styleClass="data-table">
+        <columns>
+            <TableColumn fx:id="colId" text="Request ID" prefWidth="110"/>
+            <TableColumn fx:id="colFarmer" text="Farmer" prefWidth="200"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="130"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="110"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="200"/>
+        </columns>
+        <placeholder>
+            <Label text="No membership requests found." styleClass="muted-text"/>
+        </placeholder>
+    </TableView>
+</VBox>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.farmer.FarmerProfileController"
+            fitToWidth="true" styleClass="scroll-pane">
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <Label text="My Profile" styleClass="page-title"/>
+
+    <!-- Profile Card -->
+    <HBox spacing="24" styleClass="card">
+        <padding><Insets top="24" bottom="24" left="24" right="24"/></padding>
+
+        <!-- Avatar -->
+        <VBox spacing="12" alignment="CENTER">
+            <StackPane>
+                <ImageView fx:id="profileImage" fitWidth="100" fitHeight="100"
+                           styleClass="profile-image-large"/>
+                <Label fx:id="profileInitial" styleClass="profile-initial-large"/>
+            </StackPane>
+            <Button text="Change Photo" styleClass="btn-secondary" onAction="#changePhoto"/>
+        </VBox>
+
+        <!-- Info -->
+        <VBox spacing="12" HBox.hgrow="ALWAYS">
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Full Name" styleClass="field-label"/>
+                    <TextField fx:id="nameField" styleClass="input-field"/>
+                </VBox>
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="User ID" styleClass="field-label"/>
+                    <Label fx:id="idLabel" styleClass="readonly-field"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Email" styleClass="field-label"/>
+                    <Label fx:id="emailLabel" styleClass="readonly-field"/>
+                </VBox>
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="District" styleClass="field-label"/>
+                    <Label fx:id="districtLabel" styleClass="readonly-field"/>
+                </VBox>
+            </HBox>
+            <Button text="Save Changes" styleClass="btn-primary" onAction="#saveProfile"/>
+        </VBox>
+    </HBox>
+
+    <!-- Crops Table -->
+    <VBox styleClass="card" spacing="12">
+        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+        <Label text="My Crops" styleClass="section-title"/>
+        <Label text="Crops currently planted across your fields." styleClass="muted-text"/>
+        <TableView fx:id="cropsTable" prefHeight="180" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colFieldId"  text="Field ID"   prefWidth="120"/>
+                <TableColumn fx:id="colCropId"   text="Crop ID"    prefWidth="120"/>
+                <TableColumn fx:id="colCropName" text="Crop Name"  prefWidth="200"/>
+            </columns>
+            <placeholder>
+                <Label text="No crops planted in your fields yet." styleClass="muted-text"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- Cooperatives -->
+    <VBox styleClass="card" spacing="12">
+        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="My Cooperatives" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+            <Button text="+ Join Cooperative" styleClass="btn-secondary" onAction="#requestMembership"/>
+        </HBox>
+        <VBox fx:id="coopsContainer" spacing="8"/>
+    </VBox>
+
+    <!-- Pending Membership Requests -->
+    <VBox styleClass="card" spacing="12">
+        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+        <Label text="Membership Requests" styleClass="section-title"/>
+        <TableView fx:id="membershipTable" prefHeight="160" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colMbrReqId"   text="Request ID"  prefWidth="110"/>
+                <TableColumn fx:id="colMbrReqCoop" text="Cooperative" prefWidth="200"/>
+                <TableColumn fx:id="colMbrReqDate" text="Date"        prefWidth="130"/>
+                <TableColumn fx:id="colMbrReqStat" text="Status"      prefWidth="110"/>
+            </columns>
+            <placeholder>
+                <Label text="No membership requests yet." styleClass="muted-text"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+</VBox>
+</ScrollPane>

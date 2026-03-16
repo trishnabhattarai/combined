@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.admin.AdminProfileController"
+            fitToWidth="true" styleClass="scroll-pane">
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+    <Label text="My Profile" styleClass="page-title"/>
+    <VBox styleClass="card" spacing="16" maxWidth="500">
+        <padding><Insets top="28" bottom="28" left="28" right="28"/></padding>
+
+        <!-- Avatar initials -->
+        <HBox spacing="16" alignment="CENTER_LEFT">
+            <StackPane styleClass="profile-avatar-large">
+                <Label fx:id="profileInitial" styleClass="profile-initial-large"/>
+            </StackPane>
+            <VBox spacing="4">
+                <Label fx:id="idLabel" styleClass="readonly-field" style="-fx-font-size:13px;"/>
+                <Label text="Administrator" styleClass="muted-text"/>
+            </VBox>
+        </HBox>
+
+        <Separator/>
+
+        <VBox spacing="6">
+            <Label text="Full Name" styleClass="field-label"/>
+            <TextField fx:id="nameField" styleClass="input-field"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="Email" styleClass="field-label"/>
+            <TextField fx:id="emailField" styleClass="input-field"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="New Password" styleClass="field-label"/>
+            <PasswordField fx:id="passField" promptText="Leave blank to keep current" styleClass="input-field"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="Confirm New Password" styleClass="field-label"/>
+            <PasswordField fx:id="confirmField" promptText="Repeat new password" styleClass="input-field"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="error-label" visible="false" wrapText="true"/>
+
+        <Button text="Save Changes" styleClass="btn-primary" onAction="#saveProfile"/>
+    </VBox>
+</VBox>
+</ScrollPane>

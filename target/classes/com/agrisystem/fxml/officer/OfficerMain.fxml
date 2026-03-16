@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.officer.OfficerMainController"
+            prefWidth="1200" prefHeight="750"
+            styleClass="main-root">
+
+    <!-- ─── TOP NAVBAR ─── -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="0">
+            <Label text="🌾 AgriSystem" styleClass="navbar-brand"/>
+
+            <Separator orientation="VERTICAL" styleClass="navbar-divider"/>
+
+            <Button fx:id="navDashboard"  text="📊  Dashboard"  styleClass="nav-btn,nav-active" onAction="#showDashboard"/>
+            <Button fx:id="navMembership" text="🤝  Membership" styleClass="nav-btn" onAction="#showMembership"/>
+            <Button fx:id="navLoans"      text="💰  Loans"      styleClass="nav-btn" onAction="#showLoans"/>
+            <Button fx:id="navReport"     text="📋  Report"     styleClass="nav-btn" onAction="#showReport"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <HBox styleClass="navbar-profile" spacing="8" alignment="CENTER">
+                <padding><Insets left="8" right="4"/></padding>
+                <Label fx:id="profileInitial" styleClass="profile-initial-nav" alignment="CENTER"/>
+                <Label fx:id="sidebarName" styleClass="navbar-username"/>
+            </HBox>
+            <Button text="⌄" styleClass="icon-btn" onAction="#showProfileMenu"/>
+
+            <Separator orientation="VERTICAL" styleClass="navbar-divider"/>
+
+            <Button text="⇠  Logout" styleClass="nav-btn,logout-btn" onAction="#handleLogout">
+                <HBox.margin><Insets left="4" right="8"/></HBox.margin>
+            </Button>
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+</BorderPane>

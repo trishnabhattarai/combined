@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.agrisystem.controller.SignupController"
+           styleClass="login-root"
+           prefWidth="500" prefHeight="700">
+
+    <VBox alignment="CENTER" spacing="0" maxWidth="420">
+        <padding><Insets top="40" bottom="40" left="40" right="40"/></padding>
+
+        <Label text="🌾" style="-fx-font-size: 56px;"/>
+        <Label text="AgriSystem" styleClass="brand-title"/>
+        <Label text="Create your account" styleClass="brand-subtitle"/>
+
+        <Region minHeight="20"/>
+
+        <VBox styleClass="card" spacing="16">
+            <padding><Insets top="28" bottom="28" left="28" right="28"/></padding>
+
+            <Label text="Sign Up" styleClass="form-heading"/>
+
+            <VBox spacing="6">
+                <Label text="Full Name" styleClass="field-label"/>
+                <TextField fx:id="nameField" promptText="Your full name" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Email or Phone Number" styleClass="field-label"/>
+                <TextField fx:id="emailField" promptText="Email address or phone" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Password" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField" promptText="Create a password" styleClass="input-field"/>
+                <Label fx:id="strengthLabel" styleClass="muted-text"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Confirm Password" styleClass="field-label"/>
+                <PasswordField fx:id="confirmField" promptText="Repeat password" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="District" styleClass="field-label"/>
+                <ComboBox fx:id="districtCombo" promptText="Select your district"
+                          maxWidth="Infinity" styleClass="input-field"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" visible="false"/>
+
+            <VBox styleClass="password-hints" spacing="3">
+                <Label text="Password must contain:" styleClass="hint-heading"/>
+                <Label fx:id="hintLength" text="✗ Minimum 8 characters" styleClass="hint-fail"/>
+                <Label fx:id="hintUpper" text="✗ Uppercase letter" styleClass="hint-fail"/>
+                <Label fx:id="hintLower" text="✗ Lowercase letter" styleClass="hint-fail"/>
+                <Label fx:id="hintDigit" text="✗ Number" styleClass="hint-fail"/>
+                <Label fx:id="hintSpecial" text="✗ Special character" styleClass="hint-fail"/>
+            </VBox>
+
+            <Button text="Create Account" styleClass="btn-primary" maxWidth="Infinity"
+                    onAction="#handleSignup" defaultButton="true"/>
+
+            <Separator/>
+
+            <HBox alignment="CENTER" spacing="6">
+                <Label text="Already have an account?" styleClass="muted-text"/>
+                <Hyperlink text="Sign In" onAction="#goToLogin" styleClass="link"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>

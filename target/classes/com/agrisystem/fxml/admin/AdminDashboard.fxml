@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.admin.AdminDashboardController"
+            fitToWidth="true" styleClass="scroll-pane">
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label fx:id="welcomeLabel" styleClass="page-title"/>
+        <Label text="Platform overview and user statistics." styleClass="page-subtitle"/>
+    </VBox>
+
+    <!-- Stats row -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Total Users" styleClass="stat-label"/>
+            <Label fx:id="totalUsersLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Farmers" styleClass="stat-label"/>
+            <Label fx:id="farmersLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Officers" styleClass="stat-label"/>
+            <Label fx:id="officersLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Total Loans" styleClass="stat-label"/>
+            <Label fx:id="loansLabel" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="24">
+        <!-- Pie chart -->
+        <VBox styleClass="chart-card" HBox.hgrow="ALWAYS" spacing="12">
+            <Label text="User Distribution" styleClass="section-title"/>
+            <PieChart fx:id="userPieChart" prefHeight="300" legendVisible="true"/>
+        </VBox>
+
+        <!-- Recent activity -->
+        <VBox styleClass="chart-card" prefWidth="300" spacing="12">
+            <Label text="Recent Loans" styleClass="section-title"/>
+            <ListView fx:id="recentLoansList" VBox.vgrow="ALWAYS" prefHeight="270"/>
+        </VBox>
+    </HBox>
+</VBox>
+</ScrollPane>

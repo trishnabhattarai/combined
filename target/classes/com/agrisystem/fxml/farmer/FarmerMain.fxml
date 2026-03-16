@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.farmer.FarmerMainController"
+            prefWidth="1200" prefHeight="750"
+            styleClass="main-root">
+
+    <!-- ─── TOP NAVBAR ─── -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="0">
+            <!-- Brand -->
+            <Label text="🌾 AgriSystem" styleClass="navbar-brand"/>
+
+            <Separator orientation="VERTICAL" styleClass="navbar-divider"/>
+
+            <!-- Nav items -->
+            <Button fx:id="navDashboard" text="📊  Dashboard"    styleClass="nav-btn,nav-active" onAction="#showDashboard"/>
+            <Button fx:id="navFields"    text="🌿  Fields"        styleClass="nav-btn" onAction="#showFields"/>
+            <Button fx:id="navCoops"     text="🤝  Cooperatives"  styleClass="nav-btn" onAction="#showCooperatives"/>
+            <Button fx:id="navLoans"     text="💰  Loans"         styleClass="nav-btn" onAction="#showLoans"/>
+            <Button fx:id="navMarket"    text="🛒  Market"        styleClass="nav-btn" onAction="#showMarket"/>
+
+            <!-- Spacer -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Profile section -->
+            <HBox styleClass="navbar-profile" spacing="8" alignment="CENTER">
+                <padding><Insets left="8" right="4"/></padding>
+                <StackPane>
+                    <javafx.scene.image.ImageView fx:id="profileImage"
+                                                  fitWidth="32" fitHeight="32"
+                                                  styleClass="profile-image-small"/>
+                    <Label fx:id="profileInitial" styleClass="profile-initial-nav" alignment="CENTER"/>
+                </StackPane>
+                <Label fx:id="sidebarName" styleClass="navbar-username"/>
+            </HBox>
+            <Button fx:id="profileMenuBtn" text="⌄" styleClass="icon-btn" onAction="#showProfileMenu"/>
+
+            <Separator orientation="VERTICAL" styleClass="navbar-divider"/>
+
+            <!-- Logout -->
+            <Button text="⇠  Logout" styleClass="nav-btn,logout-btn" onAction="#handleLogout">
+                <HBox.margin><Insets left="4" right="8"/></HBox.margin>
+            </Button>
+        </HBox>
+    </top>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+
+</BorderPane>

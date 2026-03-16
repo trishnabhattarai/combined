@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.agrisystem.controller.admin.AdminManageUsersController"
+      styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label text="Manage Users" styleClass="page-title"/>
+        <Label text="Search, edit, and manage all system users." styleClass="page-subtitle"/>
+    </VBox>
+
+    <!-- Search bar -->
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Search by name, email, or ID..."
+                   HBox.hgrow="ALWAYS" styleClass="input-field" onKeyReleased="#filterUsers"/>
+        <ComboBox fx:id="typeFilter" promptText="All Types" onAction="#filterUsers"/>
+        <Button text="Search" styleClass="btn-primary" onAction="#filterUsers"/>
+    </HBox>
+
+    <!-- Users table -->
+    <TableView fx:id="usersTable" VBox.vgrow="ALWAYS" styleClass="data-table">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="120"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="160"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
+            <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="180"/>
+        </columns>
+        <placeholder>
+            <Label text="No users found." styleClass="muted-text"/>
+        </placeholder>
+    </TableView>
+
+    <!-- Pagination -->
+    <HBox alignment="CENTER" spacing="12">
+        <Button fx:id="prevBtn" text="← Previous" styleClass="btn-secondary" onAction="#prevPage" disable="true"/>
+        <Label fx:id="pageLabel" styleClass="muted-text"/>
+        <Button fx:id="nextBtn" text="Next →" styleClass="btn-secondary" onAction="#nextPage"/>
+    </HBox>
+</VBox>

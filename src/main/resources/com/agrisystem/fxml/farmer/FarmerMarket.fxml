@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.farmer.FarmerMarketController"
+            fitToWidth="true" styleClass="scroll-pane">
+
+<VBox styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Market" styleClass="page-title"/>
+            <Label text="Buy and sell crops at local markets." styleClass="page-subtitle"/>
+        </VBox>
+        <Label fx:id="balanceLabel" styleClass="balance-badge"/>
+    </HBox>
+
+    <!-- Market & Crop selector -->
+    <HBox spacing="16" alignment="CENTER_LEFT">
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Select Market" styleClass="field-label"/>
+            <ComboBox fx:id="marketCombo" maxWidth="Infinity" onAction="#onMarketSelected"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Select Crop" styleClass="field-label"/>
+            <ComboBox fx:id="cropCombo" maxWidth="Infinity"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Quantity (kg)" styleClass="field-label"/>
+            <TextField fx:id="quantityField" promptText="Min 0.5 kg"/>
+        </VBox>
+    </HBox>
+
+    <!-- Price display -->
+    <HBox spacing="16" alignment="CENTER_LEFT">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Price / kg" styleClass="stat-label"/>
+            <Label fx:id="priceLabel" styleClass="stat-value" text="—"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Total Value" styleClass="stat-label"/>
+            <Label fx:id="totalLabel" styleClass="stat-value" text="—"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Crop Inventory" styleClass="stat-label"/>
+            <Label fx:id="inventoryLabel" styleClass="stat-value" text="—"/>
+            <Label text="10 kg/hr production rate" styleClass="stat-sub"/>
+        </VBox>
+    </HBox>
+
+    <!-- Action buttons -->
+    <HBox spacing="12">
+        <Button text="Buy Crop" styleClass="btn-primary" onAction="#buyCrop"/>
+        <Button text="Sell Crop" styleClass="btn-success" onAction="#sellCrop"/>
+    </HBox>
+
+    <!-- Transaction history / Finances -->
+    <TabPane styleClass="tab-pane" VBox.vgrow="ALWAYS">
+        <Tab text="Transaction History" closable="false">
+            <TableView fx:id="txTable" styleClass="data-table">
+                <columns>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="80"/>
+                    <TableColumn fx:id="colCrop" text="Crop" prefWidth="120"/>
+                    <TableColumn fx:id="colMarket" text="Market" prefWidth="150"/>
+                    <TableColumn fx:id="colQty" text="Qty (kg)" prefWidth="90"/>
+                    <TableColumn fx:id="colPrice" text="Price/kg" prefWidth="90"/>
+                    <TableColumn fx:id="colTotal" text="Total (NRs)" prefWidth="110"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab text="Finances" closable="false">
+            <VBox spacing="20" styleClass="page-content">
+                <padding><Insets top="16"/></padding>
+                <HBox spacing="16">
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Total Income" styleClass="stat-label"/>
+                        <Label fx:id="totalIncome" styleClass="stat-value" style="-fx-text-fill:#4CAF50;"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Total Expenses" styleClass="stat-label"/>
+                        <Label fx:id="totalExpense" styleClass="stat-value" style="-fx-text-fill:#F44336;"/>
+                    </VBox>
+                </HBox>
+                <BarChart fx:id="financeChart" prefHeight="250" legendVisible="true">
+                    <xAxis><CategoryAxis label="Date"/></xAxis>
+                    <yAxis><NumberAxis label="NRs"/></yAxis>
+                </BarChart>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>
+</ScrollPane>

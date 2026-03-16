@@ -1,0 +1,17 @@
+2026-03-12 05:24:56,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-12 05:25:34,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-13 17:06:49,USR-F-003,Apil Adhikari,LOGIN,User logged in as FARMER
+2026-03-13 17:06:58,USR-F-003,apil,PROFILE_UPDATE,User updated their name
+2026-03-13 17:07:09,USR-F-003,Apil Adhikari,PROFILE_UPDATE,User updated their name
+2026-03-13 17:40:08,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-13 20:44:55,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-13 21:12:35,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-13 21:13:28,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-13 21:18:20,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-14 15:19:03,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-14 15:20:41,USR-F-004,Apil,LOGIN,User logged in as FARMER
+2026-03-14 15:46:08,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-14 15:46:29,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-16 10:13:11,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-16 10:13:37,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-16 22:28:57,USR-A-001,System Admin,LOGIN,User logged in as ADMIN

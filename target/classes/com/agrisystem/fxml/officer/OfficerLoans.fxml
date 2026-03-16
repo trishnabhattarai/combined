@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.agrisystem.controller.officer.OfficerLoansController"
+      styleClass="page-content" spacing="24">
+    <padding><Insets top="32" bottom="32" left="32" right="32"/></padding>
+
+    <VBox spacing="4">
+        <Label text="Loan Management" styleClass="page-title"/>
+        <Label text="Review loans and cooperative membership requests." styleClass="page-subtitle"/>
+    </VBox>
+
+    <!-- Tabs -->
+    <TabPane VBox.vgrow="ALWAYS" styleClass="tab-pane">
+
+        <Tab text="Loan Requests" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16"/></padding>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" promptText="Search by farmer name or ID..."
+                               HBox.hgrow="ALWAYS" styleClass="input-field" onKeyReleased="#filterLoans"/>
+                    <ComboBox fx:id="statusFilter" onAction="#filterLoans"/>
+                </HBox>
+                <TableView fx:id="loansTable" prefHeight="400" styleClass="data-table">
+                    <columns>
+                        <TableColumn fx:id="colId"          text="Loan ID"        prefWidth="100"/>
+                        <TableColumn fx:id="colFarmer"      text="Farmer"          prefWidth="160"/>
+                        <TableColumn fx:id="colFarmerScore" text="Resp. Score"     prefWidth="110"/>
+                        <TableColumn fx:id="colAmount"      text="Amount (NRs)"   prefWidth="120"/>
+                        <TableColumn fx:id="colStatus"      text="Status"          prefWidth="100"/>
+                        <TableColumn fx:id="colDate"        text="Date"            prefWidth="110"/>
+                        <TableColumn fx:id="colActions"     text="Actions"         prefWidth="160"/>
+                    </columns>
+                    <placeholder><Label text="No loan requests for your cooperative." styleClass="muted-text"/></placeholder>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Membership Requests" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16"/></padding>
+                <TableView fx:id="memberTable" prefHeight="400" styleClass="data-table">
+                    <columns>
+                        <TableColumn fx:id="colMbrId"     text="Request ID"  prefWidth="110"/>
+                        <TableColumn fx:id="colMbrFarmer" text="Farmer"      prefWidth="200"/>
+                        <TableColumn fx:id="colMbrCoop"   text="Cooperative" prefWidth="180"/>
+                        <TableColumn fx:id="colMbrStatus" text="Status"      prefWidth="110"/>
+                        <TableColumn fx:id="colMbrDate"   text="Date"        prefWidth="120"/>
+                        <TableColumn fx:id="colMbrAction" text="Actions"     prefWidth="200"/>
+                    </columns>
+                    <placeholder><Label text="No pending membership requests." styleClass="muted-text"/></placeholder>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>
