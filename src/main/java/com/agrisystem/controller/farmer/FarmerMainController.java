@@ -9,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -18,21 +17,20 @@ import java.util.List;
 public class FarmerMainController {
 
     @FXML private StackPane contentArea;
-    @FXML private Label sidebarName;
+    @FXML private Label     sidebarName;
     @FXML private ImageView profileImage;
-    @FXML private Label profileInitial;
+    @FXML private Label     profileInitial;
 
     @FXML private Button navDashboard;
     @FXML private Button navFields;
     @FXML private Button navCoops;
     @FXML private Button navLoans;
     @FXML private Button navMarket;
-
-    private List<Button> navButtons;
-    private Button activeNav;
     @FXML private Button profileMenuBtn;
 
-    /** Called by child controllers (e.g. Profile) when the user renames themselves. */
+    private List<Button> navButtons;
+
+    /** Called by child controllers when the user renames themselves. */
     public void refreshSidebarName() {
         User user = SessionManager.getInstance().getCurrentUser();
         if (user != null) {
@@ -52,18 +50,17 @@ public class FarmerMainController {
         showDashboard();
     }
 
-    @FXML private void showDashboard()     { loadContent("/com/agrisystem/fxml/farmer/FarmerDashboard.fxml", navDashboard); }
-    @FXML private void showFields()        { loadContent("/com/agrisystem/fxml/farmer/FarmerFields.fxml", navFields); }
-    @FXML private void showCooperatives()  { loadContent("/com/agrisystem/fxml/farmer/FarmerCooperatives.fxml", navCoops); }
-    @FXML private void showLoans()         { loadContent("/com/agrisystem/fxml/farmer/FarmerLoans.fxml", navLoans); }
-    @FXML private void showMarket()        { loadContent("/com/agrisystem/fxml/farmer/FarmerMarket.fxml", navMarket); }
+    @FXML private void showDashboard()    { loadContent("/com/agrisystem/fxml/farmer/FarmerDashboard.fxml",     navDashboard); }
+    @FXML private void showFields()       { loadContent("/com/agrisystem/fxml/farmer/FarmerFields.fxml",        navFields); }
+    @FXML private void showCooperatives() { loadContent("/com/agrisystem/fxml/farmer/FarmerCooperatives.fxml",  navCoops); }
+    @FXML private void showLoans()        { loadContent("/com/agrisystem/fxml/farmer/FarmerLoans.fxml",         navLoans); }
+    @FXML private void showMarket()       { loadContent("/com/agrisystem/fxml/farmer/FarmerMarket.fxml",        navMarket); }
 
     @FXML
     private void showProfileMenu() {
-        // Show context menu with Edit Profile and Logout
         javafx.scene.control.ContextMenu menu = new javafx.scene.control.ContextMenu();
         javafx.scene.control.MenuItem editProfile = new javafx.scene.control.MenuItem("Edit Profile");
-        javafx.scene.control.MenuItem logout = new javafx.scene.control.MenuItem("Logout");
+        javafx.scene.control.MenuItem logout      = new javafx.scene.control.MenuItem("Logout");
         editProfile.setOnAction(e -> loadContent("/com/agrisystem/fxml/farmer/FarmerProfile.fxml", null));
         logout.setOnAction(e -> handleLogout());
         menu.getItems().addAll(editProfile, logout);
@@ -80,20 +77,22 @@ public class FarmerMainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Node content = loader.load();
-            // Give child controllers a reference back so they can update the sidebar
+
             Object controller = loader.getController();
+            // Pass back-reference so child controllers can navigate / update sidebar
             if (controller instanceof FarmerProfileController pc) {
                 pc.setMainController(this);
             }
-            contentArea.getChildren().setAll(content);
-            // Update active nav
-            navButtons.forEach(b -> {
-                b.getStyleClass().remove("nav-active");
-            });
-            if (activeButton != null) {
-                if (!activeButton.getStyleClass().contains("nav-active"))
-                    activeButton.getStyleClass().add("nav-active");
+            if (controller instanceof FarmerFieldsController fc) {
+                fc.setMainController(this);
             }
+
+            contentArea.getChildren().setAll(content);
+
+            navButtons.forEach(b -> b.getStyleClass().remove("nav-active"));
+            if (activeButton != null && !activeButton.getStyleClass().contains("nav-active"))
+                activeButton.getStyleClass().add("nav-active");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

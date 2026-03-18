@@ -1,0 +1,41 @@
+2026-03-12 05:24:56,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-12 05:25:34,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-13 17:06:49,USR-F-003,Apil Adhikari,LOGIN,User logged in as FARMER
+2026-03-13 17:06:58,USR-F-003,apil,PROFILE_UPDATE,User updated their name
+2026-03-13 17:07:09,USR-F-003,Apil Adhikari,PROFILE_UPDATE,User updated their name
+2026-03-13 17:40:08,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-13 20:44:55,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-13 21:12:35,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-13 21:13:28,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-13 21:18:20,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-14 15:19:03,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-14 15:20:41,USR-F-004,Apil,LOGIN,User logged in as FARMER
+2026-03-14 15:46:08,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-14 15:46:29,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-16 10:13:11,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-16 10:13:37,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-16 22:28:57,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-17 00:26:15,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-17 00:39:01,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-17 00:40:40,USR-A-001,System Admin,BACKUP_CREATED,Created backup: backup_20260317_004040
+2026-03-17 00:41:22,USR-A-001,System Admin,BACKUP_CREATED,Created backup: backup_20260317_004122
+2026-03-17 00:43:05,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-17 00:45:04,USR-O-001,Jane Officer,EXPORT_REPORT,Exported CSV report for cooperative CO-001
+2026-03-17 00:51:01,USR-F-002,Sita Devi,LOGIN,User logged in as FARMER
+2026-03-17 01:01:11,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-17 01:11:34,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-17 09:51:15,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-17 10:03:30,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-17 10:06:14,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-17 10:06:42,USR-O-001,Jane Officer,EXPORT_REPORT,Exported CSV report for cooperative CO-001
+2026-03-17 10:08:10,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-17 20:55:39,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-17 21:21:44,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-17 21:51:33,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-17 21:55:55,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-18 07:25:29,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-18 07:45:53,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-18 07:50:31,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-18 07:51:33,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-18 08:40:19,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-18 09:24:02,USR-A-001,System Admin,LOGIN,User logged in as ADMIN

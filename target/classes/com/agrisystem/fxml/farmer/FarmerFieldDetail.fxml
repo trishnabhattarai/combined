@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.agrisystem.controller.farmer.FarmerFieldDetailController"
+            fitToWidth="true" styleClass="scroll-pane">
+
+    <VBox styleClass="page-content" spacing="20">
+        <padding><Insets top="28" bottom="32" left="32" right="32"/></padding>
+
+        <!-- ── Back + Field header ── -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Button fx:id="backBtn" text="← Back to Fields" styleClass="btn-secondary" onAction="#goBack"/>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <!-- Field info card -->
+        <VBox styleClass="card" spacing="6">
+            <padding><Insets top="16" bottom="16" left="20" right="20"/></padding>
+            <Label fx:id="fieldTitleLabel" styleClass="page-title"/>
+            <HBox spacing="24">
+                <Label fx:id="fieldCropLabel" styleClass="muted-text"/>
+                <Label fx:id="fieldAreaLabel" styleClass="muted-text"/>
+            </HBox>
+        </VBox>
+
+        <!-- ── Plot management ── -->
+        <VBox styleClass="card" spacing="12">
+            <padding><Insets top="16" bottom="16" left="20" right="20"/></padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label text="🌱 Plots" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+                <Label fx:id="plotCountLabel" styleClass="muted-text"/>
+                <Button fx:id="addPlotBtn" text="+ Add Plot" styleClass="btn-primary" onAction="#addPlot"/>
+            </HBox>
+
+            <!-- Plot selector buttons rendered dynamically -->
+            <HBox fx:id="plotBar" spacing="8" alignment="CENTER_LEFT"/>
+        </VBox>
+
+        <!-- ── Kanban board ── -->
+        <VBox styleClass="card" spacing="12">
+            <padding><Insets top="16" bottom="16" left="20" right="20"/></padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label fx:id="selectedPlotLabel" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="addTaskBtn" text="+ Add Task" styleClass="btn-primary"
+                        onAction="#addTask" disable="true"/>
+            </HBox>
+
+            <!-- Three kanban columns -->
+            <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+                <!-- TO DO -->
+                <VBox HBox.hgrow="ALWAYS" spacing="0">
+                    <VBox style="-fx-background-color: #FF9800;
+                                 -fx-background-radius: 8 8 0 0;
+                                 -fx-padding: 8 12 8 12;">
+                        <Label text="📋  TO DO"
+                               style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    </VBox>
+                    <VBox fx:id="todoColumn" spacing="8" minHeight="200"
+                          style="-fx-background-color: #FFF8E1;
+                                 -fx-background-radius: 0 0 8 8;
+                                 -fx-border-color: #FFD54F;
+                                 -fx-border-radius: 0 0 8 8;
+                                 -fx-padding: 10 10 10 10;"
+                          VBox.vgrow="ALWAYS"/>
+                </VBox>
+
+                <!-- DOING -->
+                <VBox HBox.hgrow="ALWAYS" spacing="0">
+                    <VBox style="-fx-background-color: #2196F3;
+                                 -fx-background-radius: 8 8 0 0;
+                                 -fx-padding: 8 12 8 12;">
+                        <Label text="⚙️  DOING"
+                               style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    </VBox>
+                    <VBox fx:id="doingColumn" spacing="8" minHeight="200"
+                          style="-fx-background-color: #E3F2FD;
+                                 -fx-background-radius: 0 0 8 8;
+                                 -fx-border-color: #64B5F6;
+                                 -fx-border-radius: 0 0 8 8;
+                                 -fx-padding: 10 10 10 10;"
+                          VBox.vgrow="ALWAYS"/>
+                </VBox>
+
+                <!-- DONE -->
+                <VBox HBox.hgrow="ALWAYS" spacing="0">
+                    <VBox style="-fx-background-color: #4CAF50;
+                                 -fx-background-radius: 8 8 0 0;
+                                 -fx-padding: 8 12 8 12;">
+                        <Label text="✅  DONE"
+                               style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    </VBox>
+                    <VBox fx:id="doneColumn" spacing="8" minHeight="200"
+                          style="-fx-background-color: #E8F5E9;
+                                 -fx-background-radius: 0 0 8 8;
+                                 -fx-border-color: #81C784;
+                                 -fx-border-radius: 0 0 8 8;
+                                 -fx-padding: 10 10 10 10;"
+                          VBox.vgrow="ALWAYS"/>
+                </VBox>
+
+            </HBox>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

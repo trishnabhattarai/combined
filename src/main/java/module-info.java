@@ -9,4 +9,5 @@ module com.agrisystem {
     opens com.agrisystem.controller.admin to javafx.fxml;
     opens com.agrisystem.controller.officer to javafx.fxml;
     opens com.agrisystem.model to javafx.fxml;
+    opens com.agrisystem.dao to javafx.fxml;
 }
