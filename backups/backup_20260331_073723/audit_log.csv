@@ -17,6 +17,7 @@
 2026-03-16 22:28:57,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
 2026-03-17 00:26:15,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
 2026-03-17 00:39:01,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
-2026-03-17 00:40:40,USR-A-001,System Admin,BACKUP_CREATED,Created backup: backup_20260317_004040
-2026-03-31 07:39:44,USR-A-001,System Admin,BACKUP_RESTORED,Restored backup: backup_20260317_004122
-2026-03-31 08:40:45,USR-F-001,Ram Bahadur,LOGIN,User logged in as FARMER
+2026-03-19 13:05:49,USR-A-001,System Admin,BACKUP_RESTORED,Restored backup: backup_20260317_004040
+2026-03-23 10:49:21,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
+2026-03-23 10:50:38,USR-O-001,Jane Officer,LOGIN,User logged in as OFFICER
+2026-03-31 07:34:40,USR-A-001,System Admin,LOGIN,User logged in as ADMIN
